@@ -13,6 +13,17 @@ for item in dist:
 
 print('')
 
+
+for values in dist.values():
+    print(values)
+
+print('')
+
+for item,values in dist.items():
+    print(item,values)
+
+print('')
+
 print(dist.get('Bob'))
 print(dist.get('Bobs'))
 print(dist.get('Bobs', -1))
