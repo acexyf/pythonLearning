@@ -5,9 +5,9 @@ def calcs(*numbers):
         sums = sums+n*n
     return sums
 
-mylist = [1,2,3,4]
+mylist = [1,2,3,4,5]
 
-# print(calcs(*mylist))
+print(calcs(*mylist))
 
 
-print(calcs(1,2,3,4))
+# print(calcs(1,2,3,4))
