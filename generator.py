@@ -5,6 +5,23 @@ gen = (x*x for x in range(10))
 #     print(item)
 
 
+
+print(next(gen))
+print(next(gen))
+
+
+print('')
+
+for n in gen:
+    print(n)
+
+
+
+print('')
+
+
+
+
 def add(x, y, f):
     print(x)
     return f(x) + f(y)
@@ -12,5 +29,8 @@ def add(x, y, f):
 
 x=7
 print(x)
+
+
+print('')
 
 print(add(-2,-4,abs))
