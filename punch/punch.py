@@ -1,7 +1,8 @@
 import os
 import time
 
-serialNum = '10.101.160.116:5555'
+# serialNum = '10.101.160.116:5555'
+serialNum = '1dd5a009'
 
 serialStr = ''
 
