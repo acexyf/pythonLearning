@@ -1,10 +1,10 @@
-import requests
+import time
+
+ticks = int(time.time())
 
 
-r = requests.get('https://www.baidu.com')
+print(type(ticks))
 
-
-
-print(r.url)
+# print(time.strftime("%Y-%m-%d %H:%M:%S", time.localtime()) )
 
 

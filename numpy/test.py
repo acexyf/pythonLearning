@@ -1,28 +1,20 @@
-import numpy as np
+from pyspider.libs.base_handler import *
+class Handler(BaseHandler):
+    crawl_config = {
+    }
 
-# m = np.array([np.arange(3), np.arange(3)])
-# print(m)
-# print(m.shape)
+    @every(minutes=24 * 60)
+    def on_start(self):
+        self.crawl('http://scrapy.org/', callback=self.index_page)
 
+    @config(age=10 * 24 * 60 * 60)
+    def index_page(self, response):
+        for each in response.doc('a[href^="http"]').items():
+            self.crawl(each.attr.href, callback=self.detail_page)
 
-# m1 = np.array([[1,2],[4,5]])
-# print(m1[0,1])
-# print(m1.shape)
-
-
-# m2 = np.arange(20)
-# print(m2[::-1])
-
-m3 = np.arange(24).reshape(2,3,4)
-print(m3)
-
-
-
-
-
-
-
-
-
-
-
+    @config(priority=2)
+    def detail_page(self, response):
+        return {
+            "url": response.url,
+            "title": response.doc('title').text(),
+        }
