@@ -1,27 +1,8 @@
 import re
 
-dicts = {
-    "str1":'2019-12-23',
-    "str2":'2019',
-    "str3":'2019-01',
-    "str4":'2004-07-16(美国)',
-    "str5":'2004-07-16 (美 国)',
-    "str6":'2012年10月12日',
-    "str7":'2011-11-11(美国/中国大陆)',
-    "str8":'2012年',
-    "str9":'2012年8月9日（美国）',
-    "str10":'2012-11-01 / 2013-1-25（鹿特丹国际电影节）',
-    "str11":'2012-01-21（圣丹斯电影节）/2012-09-14（美国）',
-    "str12":'2012年8月（美国）',
-    "str13":'2019-6',
-    "str14": ''
-}
+import pymysql
 
 
-
-lists = ['201','','234']
-listss = [not x for x in lists]
-print(listss)
 
 def handleDate(strs):
     result = ''
@@ -50,9 +31,35 @@ def handleDate(strs):
 
 
 
-for i in range(1,15):
-    print(dicts['str'+str(i)]+'  =>  '+handleDate(dicts['str'+str(i)]))
-    pass
+print(handleDate('2012-30-12'),int('30'))
+
+conn = pymysql.connect(
+    host="localhost",
+    user="xyf",password="xyf930808",
+    database="xyf_db",
+    charset="utf8"
+)
 
 
-print()
+sql = 'select * from 80s_film_spider'
+
+cursor = conn.cursor()
+
+rowcount = cursor.execute(sql)
+
+
+
+# for i in range(rowcount):
+#     data = cursor.fetchone()
+#     release_time = handleDate(data[12])
+#     newsql = 'update 80s_film_spider set release_time="%s" where id=%d' % (release_time, data[0])
+#     print(newsql)
+#     newCursor = conn.cursor()
+#     newCursor.execute(newsql)
+
+
+# cursor.close()
+
+# conn.close()
+
+
