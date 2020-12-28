@@ -13,6 +13,8 @@ print(dic)
 dis = (1048, u'\u6eda\u86cb\u5427\uff01\u80bf\u7624\u541b', '')
 
 
+
+
 print(dis[2] == None)
 print(dis[2] is None)
 
